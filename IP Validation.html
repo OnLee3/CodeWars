@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isValidIP(str) {
+        let answer = str.split(".");
+        let flag = 0;
+        for (let x of answer) {
+          if (answer.length !== 4) flag++;
+          if (x > 255) flag++;
+          if (isNaN(x)) flag++;
+          if (x.length === 2 && x < 10) flag++;
+          if (x.length >= 3 && x < 100) flag++;
+          if (x.includes(" ")) flag++;
+          if (x === "") flag++;
+        }
+        return flag ? false : true;
+      }
+      console.log(isValidIP("0.0.0.0"));
+    </script>
+  </body>
+</html>
